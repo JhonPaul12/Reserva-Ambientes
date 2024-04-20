@@ -5,7 +5,7 @@ export const RootLayout = () => {
   return (
     <div>
       <SideMenu />
-      <Outlet />
+      
     </div>
   );
 };

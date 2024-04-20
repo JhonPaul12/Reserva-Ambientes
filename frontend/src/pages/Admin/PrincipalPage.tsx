@@ -1,3 +1,3 @@
 export const PrincipalPage = () => {
-  return <div>PrincipalPage</div>;
+  return <div className="flex">PrincipalPage</div>;
 };

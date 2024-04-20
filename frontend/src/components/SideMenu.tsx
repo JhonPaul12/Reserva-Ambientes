@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BsArrowLeftShort, BsChevronDown } from "react-icons/bs";
 import { IoLogoPolymer } from "react-icons/io";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { sideMenuOptions } from "../lib/constants";
 
 
@@ -69,9 +69,8 @@ export const SideMenu = () => {
           </ul>
         </div>
       </div>
-      <div className="p-7">
-        <h1 className="text-2xl font-bold">Home Page</h1>
-      </div>
+      
+      <Outlet/>
     </div>
   );
 };
