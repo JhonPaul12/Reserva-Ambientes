@@ -20,7 +20,7 @@ export const SideMenu = () => {
 
   return (
     <div className="flex">
-      <div className={`bg-azul h-screen p-5 pt-8 relative ${open ? "w-72" : "w-20"} duration-300`}>
+      <div className={`bg-azul h-screen p-5 pt-8 relative ${open ? "w-72" : "w-20"} duration-300`} >
         <BsArrowLeftShort className={`bg-blanco text-azul text-3xl rounded-full absolute -right-3 top-9 border border-azul cursor-pointer ${!open && "rotate-180"}`} onClick={() => setOpen(!open)} />
 
         {/* Logo */}

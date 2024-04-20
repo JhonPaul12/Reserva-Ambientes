@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import { PrincipalPage } from "../pages";
 import { RootLayout } from "../layouts";
+import { Reglas } from "../AsinarReglas/Reglas";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
           {
             path: "inicio",
             element: <PrincipalPage />,
+          },
+          {
+            path: "asignar-reglas",
+            element: <Reglas />,
           },
         ],
       },

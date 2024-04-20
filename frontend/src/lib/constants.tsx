@@ -5,18 +5,8 @@ export const sideMenuOptions = [
   {
     path: "inicio",
     name: "Inicio",
-    submenu: true,
     icon: <LuHome />,
-    subMenuOptions: [
-      {
-        path: "subopcion1",
-        name: "Subopción 1",
-      },
-      {
-        path: "subopcion2",
-        name: "Subopción 2",
-      },
-    ],
+    
   },
   {
     path: "Solicitudes",
@@ -25,42 +15,52 @@ export const sideMenuOptions = [
     icon: <LuLayers />,
     subMenuOptions: [
       {
-        path: "subopcion3",
-        name: "Subopción 3",
+        path: "solicitudes-aceptadas",
+        name: "Solicitudes Aceptadas",
       },
       {
-        path: "subopcion4",
-        name: "Subopción 4",
+        path: "solicitudes-rechazadas",
+        name: "Solicitudes Rechazadas",
       },
     ],
   },
   {
     path: "Docentes",
     name: "Docentes",
+    submenu: true,
     icon: <LuUserCircle2 />,
     subMenuOptions: [
       {
-        path: "subopcion5",
-        name: "Subopción 5",
+        path: "lista-docentes",
+        name: "Docentes Registrados",
       },
       {
-        path: "subopcion6",
-        name: "Subopción 6",
+        path: "modificar-docentes",
+        name: "Modificar Docentes",
+      },
+      {
+        path: "crear-docente",
+        name: "Crear Docente ",
       },
     ],
   },
   {
     path: "Ambientes",
     name: "Ambientes",
+    submenu: true,
     icon: <BsBuildingsFill />,
     subMenuOptions: [
       {
-        path: "subopcion7",
-        name: "Subopción 7",
+        path: "ambientes-registrado",
+        name: "Ambientes Registrados",
       },
       {
-        path: "subopcion8",
-        name: "Subopción 8",
+        path: "registrar-ambientes",
+        name: "Registrar Ambientes",
+      },
+      {
+        path: "asignar-reglas",
+        name: "Asignar reglas ",
       },
     ],
   },
