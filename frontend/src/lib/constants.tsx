@@ -5,6 +5,7 @@ export const sideMenuOptions = [
   {
     path: "inicio",
     name: "Inicio",
+    submenu: true,
     icon: <LuHome />,
     subMenuOptions: [
       {
@@ -20,6 +21,7 @@ export const sideMenuOptions = [
   {
     path: "Solicitudes",
     name: "Solicitudes",
+    submenu: true,
     icon: <LuLayers />,
     subMenuOptions: [
       {
