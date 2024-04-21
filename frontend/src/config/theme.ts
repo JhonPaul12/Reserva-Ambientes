@@ -11,7 +11,7 @@ export const darkTheme: ConfigThemes = {
     },
     colors: {
       // background: '#27272a',
-      background: "#000",
+      background: "#ffffff",
 
       primary: {
         DEFAULT: "#0182ff",
