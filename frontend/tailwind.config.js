@@ -13,6 +13,7 @@ export default {
       colors: {
         azul: "#0d1b47",
         blanco: "#f5f5f5",
+        negro: "#000000",
       },
     },
   },
