@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import { PrincipalPage } from "../pages";
-import { RootLayout } from "../layouts";
+import { RootLayout, UserLayout } from "../layouts";
 import { Reglas } from "../AsinarReglas/Reglas";
 
 export const router = createBrowserRouter([
@@ -26,6 +26,10 @@ export const router = createBrowserRouter([
       },
       //Rutas Auth
       //Rutas Usuario
+      {
+        path: "user",
+        element: <UserLayout />,
+      },
     ],
   },
 ]);

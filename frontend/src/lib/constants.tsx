@@ -6,7 +6,6 @@ export const sideMenuOptions = [
     path: "inicio",
     name: "Inicio",
     icon: <LuHome />,
-    
   },
   {
     path: "Solicitudes",

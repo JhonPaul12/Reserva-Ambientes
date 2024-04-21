@@ -48,6 +48,9 @@
   .sidemenu__link {
     @apply flex gap-4 items-center p-3 rounded-lg font-semibold transition-colors duration-1000 hover:bg-gradient-to-tr from-primary-700 to-indigo-600;
   }
+  .sidemenu__link:hover {
+    background-image: linear-gradient(to top right, #0182ff, #3f16af);
+  }
 
   .sidemenu__link span {
     @apply text-primary text-xl;

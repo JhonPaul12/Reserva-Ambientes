@@ -14,9 +14,9 @@ export function Calendario() {
   };
 
   return (
-    <div >
+    <div>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DemoContainer  components={["DatePicker"]}>
+        <DemoContainer components={["DatePicker"]}>
           <DatePicker value={value} onChange={handleChange} />
         </DemoContainer>
       </LocalizationProvider>

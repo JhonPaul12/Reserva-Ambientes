@@ -12,7 +12,7 @@ export default {
     extend: {
       colors: {
         azul: "#0d1b47",
-        blanco: "#f5f5f5",
+        blanco: "#ffffff",
         negro: "#000000",
       },
     },
@@ -20,7 +20,7 @@ export default {
   darkMode: "class",
   plugins: [
     nextui({
-      defaultTheme: "dark",
+      defaultTheme: "darkTheme",
       themes: {
         ...darkTheme,
       },
