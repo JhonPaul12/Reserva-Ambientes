@@ -1,10 +1,10 @@
 import { SideMenu } from "../../components/SideMenu";
-import { sideMenuOptions } from "../../lib";
+import { sideMenuOptionsUser } from "../../lib/constants";
 
 export const UserLayout = () => {
   return (
     <div>
-      <SideMenu sideMenuOptions={sideMenuOptions} />
+      <SideMenu sideMenuOptions={sideMenuOptionsUser} />
     </div>
   );
 };

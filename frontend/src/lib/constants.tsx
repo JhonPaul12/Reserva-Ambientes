@@ -64,3 +64,79 @@ export const sideMenuOptions = [
     ],
   },
 ];
+
+export const sideMenuOptionsUser = [
+  {
+    path: "inicio",
+    name: "Inicio",
+    icon: <LuHome />,
+  },
+  {
+    path: "buscar-ambiente",
+    name: "Buscar Ambiente",
+    submenu: true,
+    icon: <LuLayers />,
+    subMenuOptions: [
+      {
+        path: "solicitudes-aceptadas",
+        name: "Solicitudes Aceptadas",
+      },
+      {
+        path: "solicitudes-rechazadas",
+        name: "Solicitudes Rechazadas",
+      },
+    ],
+  },
+  {
+    path: "Solicitudes",
+    name: "solicitudes",
+    submenu: true,
+    icon: <LuUserCircle2 />,
+    subMenuOptions: [
+      {
+        path: "lista-docentes",
+        name: "Docentes Registrados",
+      },
+      {
+        path: "modificar-docentes",
+        name: "Modificar Docentes",
+      },
+      {
+        path: "crear-docente",
+        name: "Crear Docente ",
+      },
+    ],
+  },
+  {
+    path: "historial",
+    name: "Historial",
+    submenu: true,
+    icon: <BsBuildingsFill />,
+    subMenuOptions: [
+      {
+        path: "ambientes-registrado",
+        name: "Ambientes Registrados",
+      },
+      {
+        path: "registrar-ambientes",
+        name: "Registrar Ambientes",
+      },
+      {
+        path: "asignar-reglas",
+        name: "Asignar reglas ",
+      },
+    ],
+  },
+  {
+    path: "notificaciones",
+    name: "Notificaciones",
+    submenu: true,
+    icon: <BsBuildingsFill />,
+    subMenuOptions: [
+      {
+        path: "ambientes-registrado",
+        name: "Ambientes Registrados",
+      },
+    ],
+  },
+];
