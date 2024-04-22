@@ -11,30 +11,12 @@ export const FormRA = () => {
   const [inputUbi, setInputUbi] = useState('');
   const [inputType, setInputType] = useState('');
   const [buttonSave, setInputSave] = useState(false);
-  const [buttonCancelar, setInputCancel] = useState(false);
   const createAmbiente = useAmbienteStore( state => state.createAmbiente);
 
-  /*const [isLoading, setLoading] = useState(false);
-  const createAmbiente = useAmbienteStore( state => state.createAmbiente */
-  /*const handleSubmit = async(e: React.FormEvent<HTMLFormElement>)=>{
-  e.preventDefault();
-
-    setLoading(true);
-  
-if(nombre.value.trim()=== '' || capacidad.value.trim()=== '' ){
-    toast.error('Es necesario llenar al menos el nombre y la capacidad del ambiente para registrarlo')
-    setLoading(false);
-    return;
-  }
-    
-  const { nombre, capacidad, ubicacion, tipoAmbiente, horario } = e.target as HTMLFormElement
-
-*/
   const onInputChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target as HTMLInputElement;
     if (inputValue.value.length <30) {
       setInputName(inputValue.value);
-      console.log(inputValue.value);
     } else {
       toast.error('El nombre del ambiente debe tener como maximo 30 caracteres');
       console.log("El nombre del ambiente debe tener como maximo 30 caracteres");
@@ -47,7 +29,6 @@ if(nombre.value.trim()=== '' || capacidad.value.trim()=== '' ){
       if (inputValue.value.length <= 5 || inputValue.value === '') {
         if (!isNaN(parseInt(inputValue.value))) {
             setInputCap(inputValue.value);
-            console.log(inputValue.value);
           } else {
             setInputCap('');
             toast.error('La capacidad debe expresarse numericamente');
@@ -62,7 +43,6 @@ if(nombre.value.trim()=== '' || capacidad.value.trim()=== '' ){
     const inputValue = e.target as HTMLTextAreaElement;
   if (inputValue.value.length <= 150) {
         setInputUbi(inputValue.value);
-        console.log(inputValue);
     } else {
       toast.error('La ubicacion del ambiente debe tener como maximo 150 caracteres');
       console.log("La ubicacion del ambiente debe tener como maximo 150 caracteres");
@@ -72,19 +52,19 @@ if(nombre.value.trim()=== '' || capacidad.value.trim()=== '' ){
   const onInputChangeType = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const inputValue = e.target as HTMLSelectElement;
         setInputType(inputValue.value);
-        console.log(inputValue.value);
   }
 
   const onInputChangeSave = async(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
 
-    const { nombre, capacidad, ubicacion, tipoAmbiente} = e.target as HTMLFormElement
     
     if (inputName !== '' && inputCap !== '') {
-      
-      await createAmbiente(nombre, capacidad, ubicacion, tipoAmbiente);
+      console.log(typeof inputName);
+      console.log(inputName);
+      console.log(typeof inputCap);
+      console.log(inputCap);
+      await createAmbiente(inputName,inputType, inputUbi,  parseInt(inputCap));
       setInputSave(true);
-      console.log('true');
       console.log(buttonSave);
     } else {
 
@@ -94,8 +74,6 @@ if(nombre.value.trim()=== '' || capacidad.value.trim()=== '' ){
 }
 
 const onInputChangeCancel = () => {
-     setInputCancel(true);
-     console.log(buttonCancelar);
 }
   return (
     <div >

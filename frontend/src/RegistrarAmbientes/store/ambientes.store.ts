@@ -9,19 +9,21 @@ interface AmbienteState{
     ambientes: IAmbienteSimple[];
 }
 interface Actions {
-    createAmbiente:(nombre: string, capacidad: number, ubicacion: string, tipoAmbiente: string) => Promise<void>;
+    createAmbiente:(nombre: string, tipo: string, ubicacion: string, capacidad: number) => Promise<void>;
 }
 
 const storeApi : StateCreator<AmbienteState & Actions> = () =>({
 
     ambientes:[],
 
-    createAmbiente:  async ( nombre, capacidad, ubicacion, tipoAmbiente ) => {
+    createAmbiente:  async ( nombre,tipo, ubicacion, capacidad ) => {
         
         try{
-            const { data } = await reservasDB.post<{message: string}>('/ambientes', {
+
+            
+            const { data } = await reservasDB.post<{message: string}>('/ambiente', {
                 nombre,
-                tipoAmbiente,
+                tipo,
                 ubicacion,
                 capacidad
             })
@@ -30,7 +32,7 @@ const storeApi : StateCreator<AmbienteState & Actions> = () =>({
 
         } catch ( error ){
             if( isAxiosError(error)){
-                toast.error('Ocurrio un error')
+                toast.error('Ocurrio un error',{description: error.response?.data.message })
             }
         }
     }
