@@ -3,6 +3,7 @@ import App from "../App";
 import { PrincipalPage } from "../pages";
 import { RootLayout, UserLayout } from "../layouts";
 import { Reglas } from "../AsinarReglas/Reglas";
+import { RegistroAmbiente } from "../RegistrarAmbientes/RegistroAmbiente";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,16 @@ export const router = createBrowserRouter([
         ],
       },
       //Rutas Auth
+      {
+        path: "auth",
+        element: <RootLayout />,
+        children: [
+          {
+            path: "registroambiente",
+            element: <RegistroAmbiente />,
+          },
+        ],
+      },
       //Rutas Usuario
       {
         path: "user",
