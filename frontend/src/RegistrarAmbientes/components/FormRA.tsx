@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import { toast } from 'sonner';
-/*import { useAmbienteStore } from '../../store/ambientes/ambientes.store.ts';*/
+import { useAmbienteStore } from '../store/ambientes.store';
 
 
 export const FormRA = () => {
@@ -12,6 +12,7 @@ export const FormRA = () => {
   const [inputType, setInputType] = useState('');
   const [buttonSave, setInputSave] = useState(false);
   const [buttonCancelar, setInputCancel] = useState(false);
+  const createAmbiente = useAmbienteStore( state => state.createAmbiente);
 
   /*const [isLoading, setLoading] = useState(false);
   const createAmbiente = useAmbienteStore( state => state.createAmbiente */
@@ -71,13 +72,17 @@ if(nombre.value.trim()=== '' || capacidad.value.trim()=== '' ){
   const onInputChangeType = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const inputValue = e.target as HTMLSelectElement;
         setInputType(inputValue.value);
-        console.log(inputValue);
+        console.log(inputValue.value);
   }
 
-  const onInputChangeSave = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const onInputChangeSave = async(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
 
+    const { nombre, capacidad, ubicacion, tipoAmbiente} = e.target as HTMLFormElement
+    
     if (inputName !== '' && inputCap !== '') {
+      
+      await createAmbiente(nombre, capacidad, ubicacion, tipoAmbiente);
       setInputSave(true);
       console.log('true');
       console.log(buttonSave);
