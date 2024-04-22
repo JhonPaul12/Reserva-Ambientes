@@ -54,7 +54,7 @@ export const sideMenuOptions = [
         name: "Ambientes Registrados",
       },
       {
-        path: "registrar-ambientes",
+        path: "registrar-ambiente",
         name: "Registrar Ambientes",
       },
       {

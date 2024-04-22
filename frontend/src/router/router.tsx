@@ -23,19 +23,13 @@ export const router = createBrowserRouter([
             path: "asignar-reglas",
             element: <Reglas />,
           },
-        ],
-      },
-      //Rutas Auth
-      {
-        path: "auth",
-        element: <RootLayout />,
-        children: [
           {
-            path: "registroambiente",
+            path: "registrar-ambiente",
             element: <RegistroAmbiente />,
           },
         ],
       },
+      //Rutas Auth
       //Rutas Usuario
       {
         path: "user",
