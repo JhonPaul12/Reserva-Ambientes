@@ -4,6 +4,7 @@ import { PrincipalPage } from "../pages";
 import { RootLayout, UserLayout } from "../layouts";
 import { Reglas } from "../AsinarReglas/Reglas";
 import { RegistroAmbiente } from "../RegistrarAmbientes/RegistroAmbiente";
+import { VerAmbientes } from "../VerAmbientes/VerAmbientes";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
           {
             path: "registrar-ambiente",
             element: <RegistroAmbiente />,
+          },
+          {
+            path: "ambientes-registrados",
+            element: <VerAmbientes />,
           },
         ],
       },

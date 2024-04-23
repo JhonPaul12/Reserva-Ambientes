@@ -50,7 +50,7 @@ export const sideMenuOptions = [
     icon: <BsBuildingsFill />,
     subMenuOptions: [
       {
-        path: "ambientes-registrado",
+        path: "ambientes-registrados",
         name: "Ambientes Registrados",
       },
       {
