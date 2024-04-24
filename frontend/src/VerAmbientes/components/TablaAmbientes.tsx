@@ -14,24 +14,41 @@ interface Props {
 }
 export const TablaAmbientes = ({ ambientes }: Props) => {
   return (
-    <div className="contenedor-table ">
-      <section className=" pt-10 mx-10 ">
-        <Table removeWrapper aria-label="Tabla de Ambientes">
+    <div className=" contenedor-table ">
+      <section className="mx-6 my-4  ">
+        <Table
+          className="custom-table"
+          aria-label="Example table with dynamic content"
+        >
           <TableHeader>
-            <TableColumn>Id</TableColumn>
-            <TableColumn>Nombre</TableColumn>
-            <TableColumn>Ubicacion</TableColumn>
-            <TableColumn>Capaciodad</TableColumn>
-            <TableColumn>Tipo</TableColumn>
+            <TableColumn className="text-center text-3xl bg-slate-300">
+              Id
+            </TableColumn>
+            <TableColumn className="text-center text-3xl bg-slate-300">
+              Nombre
+            </TableColumn>
+            <TableColumn className="text-center text-3xl bg-slate-300">
+              Ubicacion
+            </TableColumn>
+            <TableColumn className="text-center text-3xl bg-slate-300">
+              Capacidad
+            </TableColumn>
+            <TableColumn className="text-center text-3xl bg-slate-300">
+              Tipo
+            </TableColumn>
           </TableHeader>
           <TableBody>
             {ambientes.map((ambiente) => (
               <TableRow key={ambiente.id}>
-                <TableCell>{ambiente.id}</TableCell>
-                <TableCell>{ambiente.nombre}</TableCell>
-                <TableCell>{ambiente.ubicacion}</TableCell>
-                <TableCell>{ambiente.capacidad}</TableCell>
-                <TableCell>{ambiente.tipo}</TableCell>
+                <TableCell className=" text-base">{ambiente.id}</TableCell>
+                <TableCell className=" text-base">{ambiente.nombre}</TableCell>
+                <TableCell className=" text-base">
+                  {ambiente.ubicacion}
+                </TableCell>
+                <TableCell className=" text-base">
+                  {ambiente.capacidad}
+                </TableCell>
+                <TableCell className="text-base">{ambiente.tipo}</TableCell>
               </TableRow>
             ))}
           </TableBody>

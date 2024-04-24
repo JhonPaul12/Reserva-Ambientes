@@ -16,7 +16,7 @@ export const VerAmbientes = () => {
   }, [ambientes, getAmbientes]);
 
   return (
-    <div className="text-negro">
+    <div className="text-negro w-full">
       <TablaAmbientes ambientes={ambientes} />
     </div>
   );
