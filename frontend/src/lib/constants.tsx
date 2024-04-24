@@ -85,6 +85,11 @@ export const sideMenuOptionsUser = [
         path: "solicitudes-rechazadas",
         name: "Solicitudes Rechazadas",
       },
+      {
+        path: "filtros",
+        name: "Filtros",
+      },
+      
     ],
   },
   {
