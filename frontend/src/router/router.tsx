@@ -5,6 +5,7 @@ import { RootLayout, UserLayout } from "../layouts";
 import { Reglas } from "../AsinarReglas/Reglas";
 import { RegistroAmbiente } from "../RegistrarAmbientes/RegistroAmbiente";
 import { CreacionSolicitud } from "../CrearSolicitud/CreacionSolicitud";
+import { BusquedaFil } from "../BusquedaFiltros";
 
 export const router = createBrowserRouter([
   {
@@ -39,7 +40,11 @@ export const router = createBrowserRouter([
           {
             path: "crear-solicitud",
             element: <CreacionSolicitud/>,
-          }
+          },
+          {
+            path: "filtros",
+            element: <BusquedaFil/>,
+          },
         ],
       },
     ],
