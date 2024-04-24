@@ -88,22 +88,22 @@ export const sideMenuOptionsUser = [
     ],
   },
   {
-    path: "Solicitudes",
-    name: "solicitudes",
+    path: "solicitudes",
+    name: "Solicitudes",
     submenu: true,
     icon: <LuUserCircle2 />,
     subMenuOptions: [
       {
-        path: "lista-docentes",
-        name: "Docentes Registrados",
+        path: "lista-solicitud",
+        name: "Solicitud creadas",
       },
       {
-        path: "modificar-docentes",
-        name: "Modificar Docentes",
+        path: "modificar-solicitud",
+        name: "Modificar Solicitud",
       },
       {
-        path: "crear-docente",
-        name: "Crear Docente ",
+        path: "crear-solicitud",
+        name: "Crear Solicitud ",
       },
     ],
   },

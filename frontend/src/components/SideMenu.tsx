@@ -31,7 +31,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({ sideMenuOptions }) => {
     <div className="flex text-blanco ">
       <div>
         <div
-          className={`  bg-azul h-screen p-5 pt-8 relative ${
+          className={` bg-azul h-full p-5 pt-8 relative ${
             open ? "w-72" : "w-20"
           } duration-300 `}
         >
