@@ -50,7 +50,7 @@ export const sideMenuOptions = [
     icon: <BsBuildingsFill />,
     subMenuOptions: [
       {
-        path: "ambientes-registrado",
+        path: "ambientes-registrados",
         name: "Ambientes Registrados",
       },
       {
@@ -72,11 +72,9 @@ export const sideMenuOptionsUser = [
     icon: <LuHome />,
   },
   {
-    path: "filtros",
-    name: "Buscar Ambiente",
-    //submenu: false,
+    path: "visualizar-ambientes",
+    name: "Ver Ambientes",
     icon: <LuLayers />,
-   
   },
   {
     path: "solicitudes",

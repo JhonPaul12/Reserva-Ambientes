@@ -22,9 +22,7 @@ export const BusquedaF = () => {
   }, []);
 
   const getAmbientes = async () => {
-    const respuesta = await axios.get(
-      `http://127.0.0.1:8000/api/ambientes/index`
-    );
+    const respuesta = await axios.get(`http://127.0.0.1:8000/api/ambiente/`);
     setAmbientes(respuesta.data);
   };
 

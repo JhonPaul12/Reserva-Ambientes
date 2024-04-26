@@ -4,6 +4,7 @@ import { PrincipalPage } from "../pages";
 import { RootLayout, UserLayout } from "../layouts";
 import { Reglas } from "../AsinarReglas/Reglas";
 import { RegistroAmbiente } from "../RegistrarAmbientes/RegistroAmbiente";
+import { VerAmbientes } from "../VerAmbientes/VerAmbientes";
 import { CreacionSolicitud } from "../CrearSolicitud/CreacionSolicitud";
 import { BusquedaFil } from "../BusquedaFiltros";
 
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
             path: "registrar-ambiente",
             element: <RegistroAmbiente />,
           },
+          {
+            path: "ambientes-registrados",
+            element: <VerAmbientes />,
+          },
         ],
       },
       //Rutas Auth
@@ -39,11 +44,11 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "crear-solicitud",
-            element: <CreacionSolicitud/>,
+            element: <CreacionSolicitud />,
           },
           {
-            path: "filtros",
-            element: <BusquedaFil/>,
+            path: "visualizar-ambientes",
+            element: <BusquedaFil />,
           },
         ],
       },
