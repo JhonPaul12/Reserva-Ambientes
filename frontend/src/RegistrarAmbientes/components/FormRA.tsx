@@ -65,6 +65,10 @@ export const FormRA = () => {
       console.log(inputCap);
       await createAmbiente(inputName,inputType, inputUbi,  parseInt(inputCap));
       setInputSave(true);
+      setInputCap('');
+      setInputName('');
+      setInputUbi('');
+      setInputType('');
       console.log(buttonSave);
     } else {
 

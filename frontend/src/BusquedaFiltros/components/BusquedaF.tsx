@@ -79,7 +79,7 @@ export const BusquedaF = () => {
         />
         <input
           type="number"
-          placeholder="CAPCIDAD"
+          placeholder="CAPACIDAD"
           value={busquedaCapacidad === null ? "" : busquedaCapacidad}
           onChange={handleBusquedaCapacidadChange}
           className="input"

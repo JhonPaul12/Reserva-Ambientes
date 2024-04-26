@@ -1,17 +1,52 @@
 import { useState } from "react";
 import { toast } from 'sonner';
-import { Calendario } from "../../AsinarReglas/components/Calendario";
+import { CalendarDate, DatePicker, DateValue } from "@nextui-org/react";
+import { useSolicitudStore } from "../store/solicitud.store";
 
 export const FormSolicitud = () => {
+    const [inputMateria, setInputMateria] = useState('');
     const [inputMotivo, setInputMotivo] = useState('');
     const [inputNEst, setInputNEst] = useState('');
+    const [inputGrupo, setInputGrupo] = useState('');
+    const [inputAmbiente, setInputAmbiente] = useState('');
+    const [inputFecha, setInputFecha] = useState<DateValue | null>(null);
+    const [inputHIni, setInputHIni] = useState('');
+    const [inputHFin, setInputHFin] = useState('');
     const [mostrarSelect, setMostrarSelect] = useState(false);
+    const createSolicitud = useSolicitudStore( state => state.createSolicitud);
+
+    const onInputChangeMateria = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const inputValue = e.target as HTMLSelectElement;
+      setInputMateria(inputValue.value);
+    }
+    const onInputChangeGrupo = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const inputValue = e.target as HTMLSelectElement;
+      setInputGrupo(inputValue.value);
+    }
+    const onInputChangeAmbiente = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const inputValue = e.target as HTMLSelectElement;
+      setInputAmbiente(inputValue.value);
+    }
+    const onInputChangeFecha = (date: CalendarDate | null) => {
+      if (date) {
+        setInputFecha(date);
+      }
+    }
+    const onInputChangeHIni = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const inputValue = e.target as HTMLSelectElement;
+      setInputHIni(inputValue.value);
+    }
+    const onInputChangeHFin = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const inputValue = e.target as HTMLSelectElement;
+      setInputHFin(inputValue.value);
+    }
+
+
 
     const onInputChangeMotivo = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const inputValue = e.target as HTMLTextAreaElement;
         if (inputValue.value.length <30) {
           setInputMotivo(inputValue.value);
-          console.log(inputValue);
         } else {
           toast.error('El motivo debe tener como maximo 150 caracteres');
           console.log("El motivo debe tener como maximo 150 caracteres");
@@ -22,7 +57,6 @@ export const FormSolicitud = () => {
         if (inputValue.value.length <6) {
           if (!isNaN(parseInt(inputValue.value))) {
             setInputNEst(inputValue.value);
-            console.log(inputValue);
           } else {
             setInputNEst('');
             toast.error('El numero de estudiantes debe expresarse numericamente');
@@ -35,18 +69,25 @@ export const FormSolicitud = () => {
         }
       }
 
-      const onInputChangeSave = () => {
-        if (inputMotivo !== '' && inputNEst !== '') {
-          
-          console.log('true');
-        } else {
-          toast.error('El motivo y el nro de estudiantes son obligatorios');
-          console.log('l motivo y el nro de estudiantes son obligatorios');
-        }
-    }
     const handleClick = () => {
         setMostrarSelect(!mostrarSelect);
-      }
+      } 
+
+      const onInputChangeSave = async(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+    
+        if (inputMotivo !== '' && inputNEst !== '') {
+          await createSolicitud( inputMotivo, "2024-04-25", '18:00:00', ' 20:00:00', 'Pendiente', parseInt(inputNEst), 2);
+          
+
+
+        } else {
+    
+          toast.error('El campo Motivo y NroEst son obligatorios');
+          console.log('El campo Motivo y NroEst son obligatorios');
+        }
+    }
+
   return (
     <div>
         <label className='text-3xl font-bold text-center text-gray-900'>CREAR SOLICITUD</label>
@@ -62,6 +103,7 @@ export const FormSolicitud = () => {
           >Añadir docente</button>
           {mostrarSelect && (
             <select
+            value={inputMotivo}
             className='mt-5 h-full w-full rounded-md border-3 bg-gray-300 py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lm  '
             >
             </select>
@@ -70,7 +112,9 @@ export const FormSolicitud = () => {
           <label className='text-ms text-gray-900' >Materia:</label>
           <br />
           <select 
+            value={inputMateria}
             className='h-full w-full rounded-md border-3 bg-gray-300 py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lm  '
+            onChange={onInputChangeMateria}
           >
           </select>
           <br />
@@ -101,6 +145,8 @@ export const FormSolicitud = () => {
           <br />
           <label className='text-ms text-gray-900'>Grupo:</label>
           <select 
+            value={inputGrupo}
+            onChange={onInputChangeGrupo}
             className='h-full w-full rounded-md border-3 bg-gray-300 py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lm  '
           >
 
@@ -108,6 +154,8 @@ export const FormSolicitud = () => {
             <label className='text-ms text-gray-900'>Ambiente:</label>
             <br />
             <select 
+            value={inputAmbiente}
+            onChange={onInputChangeAmbiente}
             className='h-full w-full rounded-md border-3 bg-gray-300 py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lm  '
 
             >
@@ -116,11 +164,18 @@ export const FormSolicitud = () => {
             <br />
             <label className='text-ms text-gray-900'>Fecha de reserva:</label>
             <br />
-            <Calendario/>
+            <DatePicker
+              label="Selecciona una fecha"
+              value={inputFecha}
+              onChange={onInputChangeFecha}
+              renderInput={(params) => <input {...params.inputProps} />}
+            />
             <br />
             <label className='text-ms text-gray-900'>Horario de inicio:</label>
             <br />
             <select 
+            value={inputHIni}
+            onChange={onInputChangeHIni}
             className='h-full w-full rounded-md border-3 bg-gray-300 py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lm  '
 
             >
@@ -130,6 +185,8 @@ export const FormSolicitud = () => {
             <label className='text-ms text-gray-900'> Horario de fin:</label>
             <br />
             <select 
+            value={inputHFin}
+            onChange={onInputChangeHFin}
             className='h-full w-full rounded-md border-3 bg-gray-300 py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lm  '
 
             >

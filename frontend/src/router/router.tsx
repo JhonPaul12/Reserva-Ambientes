@@ -7,6 +7,7 @@ import { RegistroAmbiente } from "../RegistrarAmbientes/RegistroAmbiente";
 import { VerAmbientes } from "../VerAmbientes/VerAmbientes";
 import { CreacionSolicitud } from "../CrearSolicitud/CreacionSolicitud";
 import { BusquedaFil } from "../BusquedaFiltros";
+import { SolicitudesAceptadas } from "../VisualizarSolicitudesAcp/SolicitudesAceptadas";
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
           {
             path: "filtros",
             element: <BusquedaFil />,
+          },
+          {
+            path: "solicitudes-aceptadas",
+            element: <SolicitudesAceptadas/>,
           },
         ],
       },
