@@ -1,16 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "./estilosBusq.css"
+import "./estilosBusq.css";
 
 interface Ambiente {
-    id: number;
-    nombre: string;
-    capacidad: number;
-    tipo: string;
-    ubicacion: string;
-  }
+  id: number;
+  nombre: string;
+  capacidad: number;
+  tipo: string;
+  ubicacion: string;
+}
 export const BusquedaF = () => {
-    const [ambientes, setAmbientes] = useState<Ambiente[]>([]);
+  const [ambientes, setAmbientes] = useState<Ambiente[]>([]);
   const [busquedaNombre, setBusquedaNombre] = useState<string>("");
   const [busquedaCapacidad, setBusquedaCapacidad] = useState<number | null>(
     null
@@ -71,7 +71,7 @@ export const BusquedaF = () => {
 
   return (
     <div className="contenedor">
-      <div className="p-5" >
+      <div className="p-5">
         <input
           type="text"
           placeholder="AULA"
@@ -93,7 +93,7 @@ export const BusquedaF = () => {
         >
           <option value="">Seleccione tipo...</option>
           <option value="Laboratorio">Laboratorio</option>
-          <option value="Aula de clases">Aula de clases</option>
+          <option value="Aula">Aula</option>
           <option value="Multifuncional">Multifuncional</option>
         </select>
       </div>
@@ -123,4 +123,4 @@ export const BusquedaF = () => {
       </table>
     </div>
   );
-}
+};

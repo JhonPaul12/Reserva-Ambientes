@@ -72,25 +72,11 @@ export const sideMenuOptionsUser = [
     icon: <LuHome />,
   },
   {
-    path: "buscar-ambiente",
+    path: "filtros",
     name: "Buscar Ambiente",
-    submenu: true,
+    //submenu: false,
     icon: <LuLayers />,
-    subMenuOptions: [
-      {
-        path: "solicitudes-aceptadas",
-        name: "Solicitudes Aceptadas",
-      },
-      {
-        path: "solicitudes-rechazadas",
-        name: "Solicitudes Rechazadas",
-      },
-      {
-        path: "filtros",
-        name: "Filtros",
-      },
-      
-    ],
+   
   },
   {
     path: "solicitudes",
