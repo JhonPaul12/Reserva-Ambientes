@@ -2,7 +2,6 @@ import { useState } from "react";
 import { BsArrowLeftShort, BsChevronDown } from "react-icons/bs";
 import { IoLogoPolymer } from "react-icons/io";
 import { Link, Outlet, useLocation } from "react-router-dom";
-
 interface SideMenuProps {
   sideMenuOptions: {
     path: string;
@@ -28,10 +27,10 @@ export const SideMenu: React.FC<SideMenuProps> = ({ sideMenuOptions }) => {
   };
 
   return (
-    <div className="flex text-blanco ">
-      <div>
+    <div className="flex text-blanco  ">
+      <div className="bg-azul ">
         <div
-          className={` bg-azul h-full p-5 pt-8 relative ${
+          className={` bg-azul h-screen p-5 pt-8 relative ${
             open ? "w-72" : "w-20"
           } duration-300 `}
         >
