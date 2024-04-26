@@ -83,8 +83,8 @@ export const sideMenuOptionsUser = [
     icon: <LuUserCircle2 />,
     subMenuOptions: [
       {
-        path: "lista-solicitud",
-        name: "Solicitud creadas",
+        path: "lista-solicitudes",
+        name: "Ver Solicitudes",
       },
       {
         path: "modificar-solicitud",
