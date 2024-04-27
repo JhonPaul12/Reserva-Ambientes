@@ -6,7 +6,7 @@ import { Reglas } from "../AsinarReglas/Reglas";
 import { RegistroAmbiente } from "../RegistrarAmbientes/RegistroAmbiente";
 import { VerAmbientes } from "../VerAmbientes/VerAmbientes";
 import { CreacionSolicitud } from "../CrearSolicitud/CreacionSolicitud";
-import { BusquedaFil } from "../BusquedaFiltros";
+import {  BusquedaFil } from "../BusquedaFiltros/";
 
 export const router = createBrowserRouter([
   {
@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "visualizar-ambientes",
-            element: <BusquedaFil />,
+            element: <BusquedaFil/>,
           },
         ],
       },
