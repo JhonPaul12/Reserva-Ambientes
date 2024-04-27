@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
             element: <CreacionSolicitud />,
           },
           {
-            path: "filtros",
+            path: "visualizar-ambientes",
             element: <BusquedaFil />,
           },
           {
