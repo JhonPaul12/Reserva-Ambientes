@@ -8,6 +8,8 @@ import { VerAmbientes } from "../VerAmbientes/VerAmbientes";
 import { CreacionSolicitud } from "../CrearSolicitud/CreacionSolicitud";
 import { BusquedaFil } from "../BusquedaFiltros";
 import { SolicitudesAceptadas } from "../VisualizarSolicitudesAcp/SolicitudesAceptadas";
+import { ModificarSolicitud } from "../ModificarSolicitud/ModificarSolicitud";
+import { VerSolicitudes } from "../Ver Solicitudes/VerSolicitudes";
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +56,14 @@ export const router = createBrowserRouter([
           {
             path: "solicitudes-aceptadas",
             element: <SolicitudesAceptadas/>,
+          },
+          {
+            path: "modificar-solicitud",
+            element: <ModificarSolicitud />,
+          },
+          {
+            path: "lista-solicitudes",
+            element: <VerSolicitudes />,
           },
         ],
       },
