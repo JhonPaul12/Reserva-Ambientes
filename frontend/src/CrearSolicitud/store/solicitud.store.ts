@@ -39,6 +39,13 @@ interface SolicitudState {
     },
     createSolicitud: async (motivo,fecha_solicitud,hora_inicio, hora_fin, estado, numero_estudiantes,ambiente_id) => {
       try {
+        console.log(typeof motivo);
+        console.log( motivo);
+        console.log(typeof fecha_solicitud);
+        console.log(fecha_solicitud);
+        console.log(typeof hora_inicio);
+        console.log( hora_inicio);
+
         const { data } = await reservasDB.post<{ message: string }>("/solicitud", {
           motivo,
           fecha_solicitud,
