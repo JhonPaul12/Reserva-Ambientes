@@ -30,7 +30,7 @@ interface SolicitudState {
       try {
         const { data } = await reservasDB.get<ISolicitudesResponse>("/solicitud");
         
-        
+        console.log(data.solicitudes);
         set(() => ({
             solicitudes: data.solicitudes,
         }));

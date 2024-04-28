@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from 'sonner';
 import { CalendarDate, DatePicker, DateValue } from "@nextui-org/react";
 import { useSolicitudStore } from "../store/solicitud.store";
+import axios from "axios";
+import { ISimpleDocente } from "../interfaces/simple-docente";
 
 export const FormSolicitud = () => {
+
     const [inputMateria, setInputMateria] = useState('');
     const [inputMotivo, setInputMotivo] = useState('');
     const [inputNEst, setInputNEst] = useState('');
@@ -12,8 +15,50 @@ export const FormSolicitud = () => {
     const [inputFecha, setInputFecha] = useState<DateValue | null>(null);
     const [inputHIni, setInputHIni] = useState('');
     const [inputHFin, setInputHFin] = useState('');
-    const [mostrarSelect, setMostrarSelect] = useState(false);
+    const [docentes, setDocentes] = useState<ISimpleDocente[]>([]);
+    const [selects, setSelects] = useState([]);
+
+
     const createSolicitud = useSolicitudStore( state => state.createSolicitud);
+    
+
+    
+
+  const handleClick = () => {
+    setSelects((prevSelects) => [...prevSelects, <NuevoSelect key={prevSelects.length} />]);
+  };
+
+  const NuevoSelect = () => {
+    const [inputDocente, setInputDocente] = useState('');
+
+    const onInputChangeDocente = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const inputValue = e.target as HTMLSelectElement;
+      setInputDocente(inputValue.value);
+    };
+
+    return (
+      <select
+        value={inputDocente}
+        onChange={onInputChangeDocente}
+        className='mt-5 h-full w-full rounded-md border-3 bg-gray-300 py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lm'
+      >
+        {docentes.map((docente) => (
+          <option value={docente.id} key={docente.id}>
+            {docente.name}
+          </option>
+        ))}
+      </select>
+    );
+  };
+
+    useEffect(() => {
+      getDocentes();
+    }, []);
+  
+    const getDocentes = async () => {
+      const respuesta = await axios.get(`http://127.0.0.1:8000/api/usuario/`);
+      setDocentes(respuesta.data);
+    };
 
     const onInputChangeMateria = (e: React.ChangeEvent<HTMLSelectElement>) => {
       const inputValue = e.target as HTMLSelectElement;
@@ -69,9 +114,6 @@ export const FormSolicitud = () => {
         }
       }
 
-    const handleClick = () => {
-        setMostrarSelect(!mostrarSelect);
-      } 
 
       const onInputChangeSave = async(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
@@ -96,18 +138,16 @@ export const FormSolicitud = () => {
         <label className='text-ms text-gray-900'>Docente:</label>
         <br />
         <span style={{marginRight:'50px'}} className='text-ms text-gray-900'>Nombre del docente</span>
-        <button 
-          type="button"
-          className=" flex justify-center rounded-md bg-azul p-5  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          onClick={handleClick}
-          >Añadir docente</button>
-          {mostrarSelect && (
-            <select
-            value={inputMotivo}
-            className='mt-5 h-full w-full rounded-md border-3 bg-gray-300 py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lm  '
-            >
-            </select>
-          )}
+        <button
+        type="button"
+        className="flex justify-center rounded-md bg-azul p-5 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        onClick={handleClick}
+        >
+          Añadir docente
+        </button>
+          {selects.map((select, index) => (
+          <div key={index}>{select}</div>
+         ))}
           <br />
           <label className='text-ms text-gray-900' >Materia:</label>
           <br />
