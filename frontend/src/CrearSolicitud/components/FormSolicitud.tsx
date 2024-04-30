@@ -231,8 +231,10 @@ export const FormSolicitud = () => {
 
   return (
     <div>
-        <label className='text-3xl font-bold text-center text-gray-900'>CREAR SOLICITUD</label>
-     <form className='mt-5 space-y-6'>
+      <label className="text-3xl font-bold text-center text-gray-900">
+        CREAR SOLICITUD
+      </label>
+      <form className="mt-5 space-y-6">
         <div className="columnaR">
         <label className='text-ms text-gray-900'>Docente:</label>
         <br />
@@ -259,7 +261,7 @@ export const FormSolicitud = () => {
         </select>
       ))}
           <br />
-          <label className='text-ms text-gray-900' >Materia:</label>
+          <label className="text-ms text-gray-900">Materia:</label>
           <br />
           <select 
             value={inputMateria}
@@ -273,27 +275,26 @@ export const FormSolicitud = () => {
           ))}
           </select>
           <br />
-        <label className='text-ms text-gray-900'>Motivo:</label>
-        <br />
-        <textarea 
+          <label className="text-ms text-gray-900">Motivo:</label>
+          <br />
+          <textarea
             value={inputMotivo}
-            className='h-full w-full rounded-md border-3 bg-gray-300 py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lm  '
+            className="h-full w-full rounded-md border-3 bg-gray-300 py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lm  "
             style={{
-              fontSize: '16px', 
-              padding: '20px', 
-    
+              fontSize: "16px",
+              padding: "20px",
             }}
             onChange={onInputChangeMotivo}
           />
-        <br />
-        <label className='text-ms text-gray-900'>Nro Est:</label>
-        <input  
-            type='number'
+          <br />
+          <label className="text-ms text-gray-900">Nro Est:</label>
+          <input
+            type="number"
             value={inputNEst}
-            className='h-full w-full rounded-md border-3 bg-gray-300 py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lm  '
+            className="h-full w-full rounded-md border-3 bg-gray-300 py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lm  "
             style={{
-              fontSize: '10px', 
-              padding: '20px', 
+              fontSize: "10px",
+              padding: "20px",
             }}
             onChange={onInputChangeNEst}
           />
@@ -366,7 +367,7 @@ export const FormSolicitud = () => {
           className="mt-2 mb-5 flex w-full justify-center rounded-md bg-azul p-5 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Enviar</button>
         </div>
         </div>
-        </form>
+      </form>
     </div>
-  )
-}
+  );
+};
