@@ -58,7 +58,7 @@ export const FormRA = () => {
     e.preventDefault();
 
     
-    if (inputName !== '' && inputCap !== '') {
+    if (inputName !== '' && inputCap !== ''&& inputType !== ''&& inputUbi !== '') {
       console.log(typeof inputName);
       console.log(inputName);
       console.log(typeof inputCap);
@@ -72,8 +72,8 @@ export const FormRA = () => {
       console.log(buttonSave);
     } else {
 
-      toast.error('El campo Nombre y capacidad son obligatorios');
-      console.log('El campo Nombre y capacidad son obligatorios');
+      toast.error('Todos los campos son obligatorios');
+      console.log('Todos los campos son obligatorios');
     }
 }
 
