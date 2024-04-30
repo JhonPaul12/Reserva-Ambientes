@@ -9,6 +9,8 @@ import { CreacionSolicitud } from "../CrearSolicitud/CreacionSolicitud";
 import { BusquedaFil } from "../BusquedaFiltros";
 import { ModificarSolicitud } from "../ModificarSolicitud/ModificarSolicitud";
 import { VerSolicitudes } from "../Ver Solicitudes/VerSolicitudes";
+import { CancelarSol } from "../CancelarSolicitud";
+import { TodasSolicitudes } from "../Solicitudes";
 
 export const router = createBrowserRouter([
   {
@@ -50,7 +52,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "visualizar-ambientes",
-            element: <BusquedaFil />,
+            element: <BusquedaFil/>,
           },
           {
             path: "modificar-solicitud",
@@ -59,6 +61,14 @@ export const router = createBrowserRouter([
           {
             path: "lista-solicitudes",
             element: <VerSolicitudes />,
+          },
+          {
+            path: "cancelar-solicitud",
+            element: <CancelarSol />,
+          },
+          {
+            path: "solicitudes",
+            element: <TodasSolicitudes />,
           },
         ],
       },
