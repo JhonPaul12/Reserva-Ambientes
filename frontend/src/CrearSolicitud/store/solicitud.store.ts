@@ -18,7 +18,10 @@ interface SolicitudState {
     hora_fin: string,
     estado: string,
     numero_estudiantes: number,
+    id_materia:number, 
+    id_grupo:number, 
     ambiente_id:number,
+    docentes:number[],
     ) => Promise<void>;
   }
   
@@ -37,7 +40,7 @@ interface SolicitudState {
         console.log(error);
       }
     },
-    createSolicitud: async (motivo,fecha_solicitud,hora_inicio, hora_fin, estado, numero_estudiantes,ambiente_id) => {
+    createSolicitud: async (motivo,fecha_solicitud,hora_inicio, hora_fin, estado, numero_estudiantes,id_materia, id_grupo, ambiente_id, docentes) => {
       try {
         console.log(typeof motivo);
         console.log( motivo);
@@ -45,15 +48,20 @@ interface SolicitudState {
         console.log(fecha_solicitud);
         console.log(typeof hora_inicio);
         console.log( hora_inicio);
+        console.log(typeof docentes);
+        console.log( docentes);
 
-        const { data } = await reservasDB.post<{ message: string }>("/solicitud", {
+        const { data } = await reservasDB.post<{ message: string }>("/solicitud/guardar", {
           motivo,
           fecha_solicitud,
           hora_inicio,
           hora_fin,
           estado,
           numero_estudiantes,
-          ambiente_id
+          id_materia, 
+          id_grupo, 
+          ambiente_id,
+          docentes
 
         });
   

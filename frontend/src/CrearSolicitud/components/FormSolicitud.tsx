@@ -80,30 +80,41 @@ export const FormSolicitud = () => {
     const [ambientes, setAmbientes] = useState<ISimpleAmbiente[]>([]);
     const [usuario, setUsuario] = useState(instanciaInicial);
     const [selects, setSelects] = useState([]);
+    const [listdocentes, setListDocentes] = useState([]);
 
 
     const createSolicitud = useSolicitudStore( state => state.createSolicitud);
 
 
 
-   const handleDateChange = (date) => {
+
+    const sortedOptions = [...docentes].sort((a, b) => (a.name).localeCompare(b.name));
+
+    const anadir = async(id: string) => {
+      setListDocentes([...listdocentes, id]);
+      
+      console.log(listdocentes)
+    };
+    const handleDateChange = (date) => {
     console.log(date);
     const fecha = `${date.year.toString()}-${date.month.toString()}-${date.day.toString()}`;
       setInputFecha(fecha);
     console.log(inputFecha);
   };
 
-    const handleClick = () => {
+    const handleClick = async() => {
       setSelects((prevSelects) => [...prevSelects, { id: prevSelects.length, value: '' }]);
     };
   
-    const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>, selectId) => {
+    const handleSelectChange = async(event: React.ChangeEvent<HTMLSelectElement>, selectId) => {
       const { value } = event.target as HTMLSelectElement;
-      console.log(selectId)
-      console.log(value)
       setSelects((prevSelects) =>
         prevSelects.map((select) => (select.id === selectId ? { ...select, value } : select))
       );
+      
+      console.log(selectId)
+      anadir(value);
+      console.log(value)
     };
 
 
@@ -115,6 +126,7 @@ export const FormSolicitud = () => {
       getDocentes();
       getMaterias(id);
       getAmbientes();
+      anadir(`${id}`);
     }, []);
   
     const getDocentes = async () => {
@@ -140,10 +152,6 @@ export const FormSolicitud = () => {
       setUsuario(respuesta.data);
       console.log(usuario);
     };
-
-
-
-    const sortedOptions = [...docentes].sort((a, b) => (a.name).localeCompare(b.name));
 
 
 
@@ -213,15 +221,12 @@ export const FormSolicitud = () => {
           console.log(fin);
           // Comparar los horarios
           if (inicio <= fin) {
-            await createSolicitud( inputMotivo, inputFecha, `${inputHIni}:00`, `${inputHFin}:00`, 'Pendiente', parseInt(inputNEst), parseInt(inputAmbiente));
+            console.log(listdocentes)
+            await createSolicitud( inputMotivo, inputFecha, inputHIni, inputHFin, 'Pendiente', parseInt(inputNEst),parseInt(inputMateria),parseInt(inputGrupo), parseInt(inputAmbiente),listdocentes);
            
           }else{
             toast.error("El horario de inicio es mayor al final, introduzca un rango correcto");
           }
-          
-          
-
-
         } else {
     
           toast.error('El campo Motivo y NroEst son obligatorios');
