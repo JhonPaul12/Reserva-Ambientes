@@ -69,7 +69,7 @@ export const FormSolicitud = () => {
     const [inputMateria, setInputMateria] = useState('1');
     const [inputMotivo, setInputMotivo] = useState('');
     const [inputNEst, setInputNEst] = useState('');
-    const [inputGrupo, setInputGrupo] = useState('1');
+    const [inputGrupo, setInputGrupo] = useState('');
     const [inputAmbiente, setInputAmbiente] = useState('1');
     const [inputFecha, setInputFecha] = useState('');
     const [inputHIni, setInputHIni] = useState('06:45');
@@ -212,7 +212,7 @@ export const FormSolicitud = () => {
       const onInputChangeSave = async(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
     
-        if (inputMotivo !== '' && inputNEst !== '') {
+        if (inputMotivo !== '' && inputNEst !== '' && inputFecha!== '' && inputHIni!== '' && inputHFin!== '' && inputMateria!== '' && inputGrupo!== '' && inputAmbiente!== '') {
           console.log(inputHIni);
           console.log(inputFecha);
           const inicio = new Date(`2000-01-01T${inputHIni}`);
@@ -229,8 +229,8 @@ export const FormSolicitud = () => {
           }
         } else {
     
-          toast.error('El campo Motivo y NroEst son obligatorios');
-          console.log('El campo Motivo y NroEst son obligatorios');
+          toast.error('Todos los campos son obligatorios');
+          console.log('Todos los campos son obligatorios');
         }
     }
 
