@@ -39,6 +39,10 @@ export const router = createBrowserRouter([
             path: "ambientes-registrados",
             element: <VerAmbientes />,
           },
+          {
+            path: "solicitudes-aceptadas",
+            element: <SolicitudesAceptadas/>,
+          },
         ],
       },
       //Rutas Auth
@@ -54,10 +58,6 @@ export const router = createBrowserRouter([
           {
             path: "visualizar-ambientes",
             element: <BusquedaFil/>,
-          },
-          {
-            path: "solicitudes-aceptadas",
-            element: <SolicitudesAceptadas/>,
           },
           {
             path: "modificar-solicitud",

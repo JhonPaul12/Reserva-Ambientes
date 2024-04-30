@@ -7,18 +7,28 @@ import {
     TableCell,
   } from "@nextui-org/react";
 import { useSolicitudStore } from "../store/solicitud.store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const ListaReservas = () => {
-
+  const [datos, setDatos] = useState<any[]>([]);
   const solicitudes = useSolicitudStore((state) => state.solicitudes);
   const getSolicitudes = useSolicitudStore((state) => state.getSolicitudes);
 
+
   
+
   const fetchSolicitud = async () => {
+      try {
     console.log(solicitudes.length);
     await getSolicitudes();
+    const datosFiltrados = solicitudes.filter(solicitud => solicitud.estado === "Aceptado")
+    setDatos(datosFiltrados); 
+  } catch (error) {
+    console.error("Error al obtener los datos:", error);
+  }
   };
+
+  
   useEffect(() => {
     fetchSolicitud();
     console.log(solicitudes);
@@ -51,7 +61,7 @@ export const ListaReservas = () => {
             </TableColumn>
           </TableHeader>
           <TableBody>
-            {solicitudes.map((solicitud) => (
+            {datos.map((solicitud) => (
               <TableRow key={solicitud.id}>
                 <TableCell className=" text-base text-black">{solicitud.id}</TableCell>
                 <TableCell className=" text-base text-black ">{solicitud.motivo}</TableCell>
