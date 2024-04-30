@@ -69,7 +69,7 @@ export const FormSolicitud = () => {
     const [inputMateria, setInputMateria] = useState('1');
     const [inputMotivo, setInputMotivo] = useState('');
     const [inputNEst, setInputNEst] = useState('');
-    const [inputGrupo, setInputGrupo] = useState('');
+    const [inputGrupo, setInputGrupo] = useState('1');
     const [inputAmbiente, setInputAmbiente] = useState('1');
     const [inputFecha, setInputFecha] = useState('');
     const [inputHIni, setInputHIni] = useState('06:45');
@@ -363,7 +363,7 @@ export const FormSolicitud = () => {
         className="mt-10 flex w-full justify-center rounded-md bg-azul p-5  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >Cancelar</button>
         <button 
            onClick={onInputChangeSave}
-          className="mt-2 mb-5 flex w-full justify-center rounded-md bg-azul p-5 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Guardar</button>
+          className="mt-2 mb-5 flex w-full justify-center rounded-md bg-azul p-5 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Enviar</button>
         </div>
         </div>
         </form>

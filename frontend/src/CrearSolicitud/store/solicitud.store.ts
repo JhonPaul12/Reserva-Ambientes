@@ -57,7 +57,7 @@ interface SolicitudState {
 
         });
   
-        toast.success("Guardado", { description: data.message });
+        toast.success("Enviado", { description: data.message });
       } catch (error) {
         if (isAxiosError(error)) {
           toast.error("Ocurrio un error", {
