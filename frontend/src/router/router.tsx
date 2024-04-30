@@ -7,6 +7,7 @@ import { RegistroAmbiente } from "../RegistrarAmbientes/RegistroAmbiente";
 import { VerAmbientes } from "../VerAmbientes/VerAmbientes";
 import { CreacionSolicitud } from "../CrearSolicitud/CreacionSolicitud";
 import { BusquedaFil } from "../BusquedaFiltros";
+import { SolicitudesAceptadas } from "../VisualizarSolicitudesAcp/SolicitudesAceptadas";
 import { ModificarSolicitud } from "../ModificarSolicitud/ModificarSolicitud";
 import { VerSolicitudes } from "../Ver Solicitudes/VerSolicitudes";
 import { CancelarSol } from "../CancelarSolicitud";
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
           {
             path: "ambientes-registrados",
             element: <VerAmbientes />,
+          },
+          {
+            path: "solicitudes-aceptadas",
+            element: <SolicitudesAceptadas/>,
           },
         ],
       },

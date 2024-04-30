@@ -101,6 +101,7 @@ export const BusquedaF = () => {
 
   return (
     <div className="contenedor-table">
+      <label className='ml-10 text-3xl font-bold text-center text-gray-900'>BUSQUEDA POR FILTROS</label>
       <div className="p-5">
         <input
           type="text"
