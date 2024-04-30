@@ -19,25 +19,45 @@ const storeApi: StateCreator<SolicitudState & Actions> = (set) => ({
       const { data } = await solicitudesDB.get<ISolicitudResponse>(
         "/solicitud"
       );
-      console.log(data);
-      // Mapear la data a una lista de ISimpleSolicitud
-      const solicitudes: ISimpleSolicitud[] = Object.values(data).map(
-        (solicitud: ISimpleSolicitud) => ({
-          id: solicitud.id,
-          motivo: solicitud.motivo,
-          fecha_solicitud: solicitud.fecha_solicitud,
-          hora_inicio: solicitud.hora_inicio,
-          hora_fin: solicitud.hora_fin,
-          estado: solicitud.estado,
-          numero_estudiantes: solicitud.numero_estudiantes,
-          ambiente_id: solicitud.ambiente_id,
-          created_at: new Date(solicitud.created_at),
-          updated_at: new Date(solicitud.updated_at),
-          ambiente: solicitud.ambiente,
-        })
+      // console.log("Datos de data");
+      // console.log(data);
+
+      // Verifica si data.solicitudes es un arreglo
+      if (!Array.isArray(data.solicitudes)) {
+        console.log(
+          "El formato de los datos recibidos no es un arreglo de solicitudes."
+        );
+        return;
+      }
+
+      // Mapea los datos de data.solicitudes a objetos ISimpleSolicitud
+      const solicitudes: ISimpleSolicitud[] = data.solicitudes.map(
+        (solicitud: ISimpleSolicitud) => {
+          return {
+            id: solicitud.id,
+            motivo: solicitud.motivo,
+            fecha_solicitud: new Date(solicitud.fecha_solicitud),
+            hora_inicio: solicitud.hora_inicio,
+            hora_fin: solicitud.hora_fin,
+            estado: solicitud.estado,
+            numero_estudiantes: solicitud.numero_estudiantes,
+            ambiente_id: solicitud.ambiente_id,
+            created_at: new Date(solicitud.created_at),
+            updated_at: new Date(solicitud.updated_at),
+            ambiente: {
+              id: solicitud.ambiente.id,
+              nombre: solicitud.ambiente.nombre,
+              tipo: solicitud.ambiente.tipo,
+              ubicacion: solicitud.ambiente.ubicacion,
+              capacidad: solicitud.ambiente.capacidad,
+              created_at: new Date(solicitud.ambiente.created_at),
+              updated_at: new Date(solicitud.ambiente.updated_at),
+            },
+          };
+        }
       );
-      console.log(solicitudes);
-      // Actualizar el estado con la lista de solicitudes
+      // console.log("solicitudes");
+      // console.log(solicitudes);
       set(() => ({
         solicitudes: solicitudes,
       }));

@@ -193,6 +193,7 @@ const MenuCheckBox = () => {
     return checkedBoxes;
   };
 
+  console.log("Checkboxes Marcados:", getCheckedCheckboxes());
   return (
     <div className="contenedor">
       <style>
@@ -271,12 +272,14 @@ const MenuCheckBox = () => {
                 />
               </td>
               <td>
-                <input
-                  type="checkbox"
-                  id={`checkbox-${item.id}-sabado`}
-                  checked={item.sabado}
-                  onChange={() => handleCheckboxChange(item.id, "sabado")}
-                />
+                {item.id <= 7 && (
+                  <input
+                    type="checkbox"
+                    id={`checkbox-${item.id}-sabado`}
+                    checked={item.sabado}
+                    onChange={() => handleCheckboxChange(item.id, "sabado")}
+                  />
+                )}
               </td>
             </tr>
           ))}

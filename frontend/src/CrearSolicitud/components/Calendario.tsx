@@ -1,17 +1,15 @@
+import React from "react";
 import { Dayjs } from "dayjs";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
-interface CalendarioProps {
-  selectedDate: Dayjs | null;
-  onDateChange: (newValue: Dayjs | null) => void;
-}
+export function Calendario() {
+  const [value, setValue] = React.useState<Dayjs | null>(null);
 
-export function Calendario({ selectedDate, onDateChange }: CalendarioProps) {
   const handleChange = (newValue: Dayjs | null) => {
-    onDateChange(newValue);
+    setValue(newValue);
     console.log("Selected date:", newValue?.format("YYYY-MM-DD"));
   };
 
@@ -19,7 +17,7 @@ export function Calendario({ selectedDate, onDateChange }: CalendarioProps) {
     <div className="mt-5">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DemoContainer components={["DatePicker"]}>
-          <DatePicker value={selectedDate} onChange={handleChange} />
+          <DatePicker value={value} onChange={handleChange} />
         </DemoContainer>
       </LocalizationProvider>
     </div>
