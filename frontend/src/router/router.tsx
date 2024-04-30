@@ -6,7 +6,11 @@ import { Reglas } from "../AsinarReglas/Reglas";
 import { RegistroAmbiente } from "../RegistrarAmbientes/RegistroAmbiente";
 import { VerAmbientes } from "../VerAmbientes/VerAmbientes";
 import { CreacionSolicitud } from "../CrearSolicitud/CreacionSolicitud";
-import {  BusquedaFil } from "../BusquedaFiltros/";
+import { BusquedaFil } from "../BusquedaFiltros";
+import { ModificarSolicitud } from "../ModificarSolicitud/ModificarSolicitud";
+import { VerSolicitudes } from "../Ver Solicitudes/VerSolicitudes";
+import { CancelarSol } from "../CancelarSolicitud";
+import { TodasSolicitudes } from "../Solicitudes";
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +53,22 @@ export const router = createBrowserRouter([
           {
             path: "visualizar-ambientes",
             element: <BusquedaFil/>,
+          },
+          {
+            path: "modificar-solicitud",
+            element: <ModificarSolicitud />,
+          },
+          {
+            path: "lista-solicitudes",
+            element: <VerSolicitudes />,
+          },
+          {
+            path: "cancelar-solicitud",
+            element: <CancelarSol />,
+          },
+          {
+            path: "solicitudes",
+            element: <TodasSolicitudes />,
           },
         ],
       },
