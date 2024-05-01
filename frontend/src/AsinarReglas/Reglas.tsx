@@ -112,7 +112,7 @@ export const Reglas = () => {
               const responses = await Promise.all(promises);
 
               console.log("Respuestas del servidor:", responses);
-              toast.success("Periodos creados exitosamente");
+              //toast.success("Periodos creados exitosamente");
             } catch (error) {
               console.error("Error al crear periodos:", error);
               toast.error("Error al crear periodos");
@@ -205,7 +205,7 @@ export const Reglas = () => {
         </div>
 
         <MenuCheckBox onCheckboxChange={handleCheckboxChange} />
-        <Button className="bg-primary" onClick={handleButtonClick}>
+        <Button className="bg-primary text-4xl" onClick={handleButtonClick}>
           Registrar
         </Button>
       </div>
