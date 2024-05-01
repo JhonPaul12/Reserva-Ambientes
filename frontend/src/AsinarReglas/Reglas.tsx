@@ -205,10 +205,10 @@ export const Reglas = () => {
         </div>
 
         <MenuCheckBox onCheckboxChange={handleCheckboxChange} />
+        <Button className="bg-primary" onClick={handleButtonClick}>
+          Registrar
+        </Button>
       </div>
-      <Button className="bg-primary" onClick={handleButtonClick}>
-        Registrar
-      </Button>
     </div>
   );
 };
