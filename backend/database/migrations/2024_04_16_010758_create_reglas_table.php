@@ -15,12 +15,10 @@ class CreateReglasTable extends Migration
     {
         Schema::create('reglas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('ambiente_id');
-            $table->time('hora_inicial');
-            $table->time('hora_final');
+            $table->unsignedBigInteger('ambiente_id')->unique();
             $table->date('fecha_inicial');
             $table->date('fecha_final');
-            $table->foreign('ambiente_id')->references('id')->on('ambientes');
+            $table->foreign('ambiente_id')->references('id')->on('ambientes')->onDelete('cascade');
             $table->timestamps();
         });
     }

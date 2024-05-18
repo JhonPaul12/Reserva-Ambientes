@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAmbientesTable extends Migration
+class CreatePeriodoSolicitudTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateAmbientesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ambientes', function (Blueprint $table) {
+        Schema::create('periodo_solicitud', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre',40)->unique();
-            $table->string('tipo',40);
-            $table->string('ubicacion',200);
-            $table->unsignedInteger('capacidad');
+            $table->foreignId('solicitud_id')->references('id')->on('solicitudes')->onDelete('cascade');
+            $table->foreignId('periodo_id')->references('id')->on('periodos')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateAmbientesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ambientes');
+        Schema::dropIfExists('periodo_solicitud');
     }
 }
